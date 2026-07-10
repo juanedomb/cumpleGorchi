@@ -14,11 +14,15 @@
 button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:linear-gradient(145deg,#f7eee7,#fffaf5)}
 .app:before{content:"";position:absolute;inset:0;opacity:.38;pointer-events:none;background-image:radial-gradient(rgba(130,97,105,.14) .7px,transparent .7px);background-size:12px 12px}
 .screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 18px max(20px,env(safe-area-inset-bottom));opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .65s ease,transform .65s ease,visibility .65s}
-.screen.active{opacity:1;visibility:visible;transform:none}.paper{width:min(100%,430px);max-height:calc(100vh - 34px);padding:31px 25px;border-radius:30px;background:linear-gradient(145deg,rgba(255,253,249,.98),rgba(250,241,236,.98));box-shadow:0 22px 65px rgba(99,68,77,.16);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(169,124,137,.16)}
+.screen.active{opacity:1;visibility:visible;transform:none}
+.paper{width:min(100%,430px);max-height:calc(100vh - 34px);padding:31px 25px;border-radius:30px;background:linear-gradient(145deg,rgba(255,253,249,.98),rgba(250,241,236,.98));box-shadow:0 22px 65px rgba(99,68,77,.16);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(169,124,137,.16)}
 .paper:before,.paper:after{position:absolute;font-size:35px;opacity:.17}.paper:before{content:"🌿";left:13px;top:10px;transform:rotate(-15deg)}.paper:after{content:"🌸";right:14px;bottom:9px;transform:rotate(12deg)}
-.paw{position:absolute;font-size:22px;opacity:.16}.paw.one{right:19px;top:18px;transform:rotate(18deg)}.paw.two{left:18px;bottom:17px;transform:rotate(-17deg)}
 .eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a7882;margin-bottom:12px}.title{font:600 clamp(40px,10vw,56px)/.98 "Cormorant Garamond",serif;margin:0 0 16px;color:#76535d}.copy{font-size:14px;line-height:1.72;margin:0;color:#665158}.accent{font:600 27px/1.15 "Cormorant Garamond",serif;color:#8b626d;margin:13px 0}.symbol{font-size:38px;margin:4px 0 8px}.btn{border:0;border-radius:999px;padding:13px 22px;margin-top:21px;width:min(100%,300px);background:linear-gradient(135deg,var(--rose),var(--rose2));color:white;box-shadow:0 10px 24px rgba(152,96,111,.22);cursor:pointer}.btn:active{transform:scale(.98)}
+.music{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:20;border:1px solid rgba(153,102,116,.22);background:rgba(255,253,249,.78);backdrop-filter:blur(10px);color:#76535d;border-radius:999px;padding:9px 12px;font-size:12px;cursor:pointer}
 .progress{display:flex;justify-content:center;gap:7px;margin-bottom:18px}.dot{width:7px;height:7px;border-radius:50%;background:#ddc9ce}.dot.on{width:23px;border-radius:8px;background:#a66f7d}
+.pawtrail{position:absolute;inset:0;pointer-events:none;z-index:5}.trailpaw{position:absolute;font-size:25px;color:#9a7380;opacity:0;filter:drop-shadow(0 3px 4px rgba(83,54,64,.16));transform:scale(.45) rotate(var(--r));animation:pawIn .36s ease forwards}
+@keyframes pawIn{70%{opacity:.8;transform:scale(1.1) rotate(var(--r))}100%{opacity:.58;transform:scale(1) rotate(var(--r))}}
+.paper.bump{animation:bump .18s ease}@keyframes bump{50%{transform:translateY(1px) scale(.997)}}
 .video-screen{padding:0;background:#1d1418}.video-bg,.video-main{position:absolute;inset:0;width:100%;height:100%}.video-bg{object-fit:cover;filter:blur(28px) brightness(.55) saturate(.9);transform:scale(1.12)}.video-main{object-fit:contain;z-index:1}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,0) 48%,rgba(20,10,15,.68))}.video-caption{position:absolute;z-index:3;left:22px;right:22px;bottom:max(44px,calc(env(safe-area-inset-bottom) + 28px));text-align:center;color:#fff;font:600 clamp(25px,7vw,38px)/1.12 "Cormorant Garamond",serif;text-shadow:0 3px 18px rgba(0,0,0,.55);opacity:0;animation:caption 1s .65s forwards}@keyframes caption{to{opacity:1;transform:translateY(-4px)}}
 .invitation{background:linear-gradient(145deg,#f7eee7,#fffaf5)}.invite-card{width:min(100%,430px);padding:30px 24px;border-radius:30px;background:rgba(255,253,249,.97);box-shadow:0 22px 65px rgba(99,68,77,.16);border:1px solid rgba(169,124,137,.16);text-align:center;position:relative;overflow:hidden}.invite-card:before{content:"🌿";position:absolute;left:13px;top:12px;font-size:33px;opacity:.17}.invite-card:after{content:"🐾";position:absolute;right:15px;bottom:12px;font-size:25px;opacity:.17}.invite-title{font:700 clamp(44px,11vw,61px)/.92 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}.invite-msg{font:500 22px/1.3 "Cormorant Garamond",serif;color:#8b626d;margin:0 auto 20px;max-width:360px}.details{background:#fbf3ef;border:1px solid var(--line);border-radius:23px;padding:15px;margin:0 auto 15px;max-width:365px}.row{display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 0;font-size:14px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:365px;margin:auto}.actions a,.actions button{text-decoration:none;border:0;border-radius:999px;padding:12px 9px;cursor:pointer}.map{background:#a87380;color:#fff}.confirm{background:#ecdde0;color:#76535d}.confirmed{font:600 21px/1.25 "Cormorant Garamond",serif;color:#7c5862;margin:18px 0 0;display:none}.tiny{font-size:11px;color:#9c7e86;margin-top:14px}
 @media(max-height:650px){.paper,.invite-card{padding:23px 21px}.title{font-size:38px}.copy{line-height:1.55}.symbol{font-size:32px}.btn{margin-top:15px}.accent{margin:9px 0}.details{padding:10px}.row{padding:5px 0}}
@@ -27,19 +31,91 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 </head>
 <body>
 <main class="app">
-<section class="screen active" id="s0"><div class="paper"><span class="paw one">🐾</span><span class="paw two">🐾</span><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="go(1)">Comenzar</button></div></section>
-<section class="screen" id="s1"><div class="paper"><span class="paw one">🐾</span><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="go(2)">Seguir</button></div></section>
-<section class="screen" id="s2"><div class="paper"><span class="paw two">🐾</span><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="go(3)">Otra pista</button></div></section>
-<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son los pequeños integrantes de tu familia.</p><button class="btn" onclick="go(4)">Una más</button></div></section>
-<section class="screen" id="s4"><div class="paper"><span class="paw one">🐾</span><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Hay cosas que prefiero escribir, porque ciertos sentimientos merecen quedarse en papel.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
+<button class="music" id="musicBtn" onclick="toggleMusic()">♫ Música</button>
+<div class="pawtrail" id="pawtrail"></div>
+
+<section class="screen active" id="s0"><div class="paper"><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="startExperience()">Comenzar</button></div></section>
+<section class="screen" id="s1"><div class="paper"><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="advance(2)">Seguir</button></div></section>
+<section class="screen" id="s2"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="advance(3)">Otra pista</button></div></section>
+<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son los pequeños integrantes de tu familia.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
+<section class="screen" id="s4"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Hay cosas que prefiero escribir, porque ciertos sentimientos merecen quedarse en papel.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
+
 <section class="screen video-screen" id="sv"><video class="video-bg" id="momentBg" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><video class="video-main" id="moment" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><div class="shade"></div><div class="video-caption">Gracias por convertir los momentos más simples en mis favoritos.</div></section>
+
 <section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="confirmed" id="confirmed">Sabía que ibas a decir que sí.<br>Nos vemos el lunes ✨</div><div class="tiny">La cena es solo el comienzo.</div></div></section>
 </main>
+
+<audio id="music" src="musica-suave.wav" preload="auto" loop></audio>
+<audio id="tap" src="tap-huella.wav" preload="auto"></audio>
+
 <script>
+let musicOn=false;
+let pawCount=0;
+const pawPositions=[
+  [9,12,-18],[18,22,14],[29,15,-11],[39,26,18],
+  [49,18,-14],[59,29,16],[69,20,-12],[79,31,15],
+  [87,22,-10],[77,11,18],[65,8,-15],[53,13,14]
+];
+
 function hideAll(){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'))}
 function go(n){hideAll();document.getElementById('s'+n).classList.add('active')}
-function playMoment(){hideAll();const s=document.getElementById('sv'),v=document.getElementById('moment'),b=document.getElementById('momentBg');s.classList.add('active');v.currentTime=0;b.currentTime=0;Promise.allSettled([v.play(),b.play()]);v.onended=()=>{setTimeout(()=>{hideAll();document.getElementById('si').classList.add('active')},450)}}
-function confirmInvite(){document.getElementById('confirmed').style.display='block';document.querySelector('.confirm').style.display='none'}
+
+function startExperience(){
+  if(!musicOn) toggleMusic();
+  addPaws(2);
+  setTimeout(()=>go(1),520);
+}
+
+function advance(n){
+  addPaws(2);
+  setTimeout(()=>go(n),520);
+}
+
+function toggleMusic(){
+  const m=document.getElementById('music'), b=document.getElementById('musicBtn');
+  if(musicOn){m.pause();musicOn=false;b.textContent='♫ Música'}
+  else{m.volume=.33;m.play().then(()=>{musicOn=true;b.textContent='❚❚ Música'}).catch(()=>{});}
+}
+
+function addPaws(amount){
+  const trail=document.getElementById('pawtrail');
+  const tap=document.getElementById('tap');
+  for(let i=0;i<amount;i++){
+    setTimeout(()=>{
+      const p=pawPositions[pawCount%pawPositions.length];
+      const el=document.createElement('span');
+      el.className='trailpaw';
+      el.textContent='🐾';
+      el.style.left=p[0]+'%';
+      el.style.top=p[1]+'%';
+      el.style.setProperty('--r',p[2]+'deg');
+      trail.appendChild(el);
+      const activePaper=document.querySelector('.screen.active .paper');
+      if(activePaper){activePaper.classList.remove('bump');void activePaper.offsetWidth;activePaper.classList.add('bump')}
+      tap.currentTime=0;tap.volume=.22;tap.play().catch(()=>{});
+      pawCount++;
+    },i*240);
+  }
+}
+
+function playMoment(){
+  addPaws(4);
+  setTimeout(()=>{
+    hideAll();
+    const s=document.getElementById('sv'),v=document.getElementById('moment'),b=document.getElementById('momentBg');
+    s.classList.add('active');v.currentTime=0;b.currentTime=0;
+    Promise.allSettled([v.play(),b.play()]);
+    const music=document.getElementById('music');
+    if(musicOn) music.volume=.22;
+    v.onended=()=>{setTimeout(()=>{hideAll();document.getElementById('si').classList.add('active');if(musicOn)music.volume=.30},450)}
+  },920);
+}
+
+function confirmInvite(){
+  document.getElementById('confirmed').style.display='block';
+  document.querySelector('.confirm').style.display='none';
+  addPaws(2);
+}
 </script>
 </body>
 </html>
