@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f1ea">
+<title>Para Gorchi ❤️</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#f8f1ea;--paper:#fffdf9;--ink:#59464d;--rose:#b98591;--rose2:#996674;--sage:#9cab98;--line:#ead8da}
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--cream);font-family:Poppins,sans-serif;color:var(--ink)}
+button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:linear-gradient(145deg,#f7eee7,#fffaf5)}
+.app:before{content:"";position:absolute;inset:0;opacity:.38;pointer-events:none;background-image:radial-gradient(rgba(130,97,105,.14) .7px,transparent .7px);background-size:12px 12px}
+.screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 18px max(20px,env(safe-area-inset-bottom));opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .65s ease,transform .65s ease,visibility .65s}
+.screen.active{opacity:1;visibility:visible;transform:none}
+.paper{width:min(100%,430px);max-height:calc(100vh - 34px);padding:31px 25px;border-radius:30px;background:linear-gradient(145deg,rgba(255,253,249,.98),rgba(250,241,236,.98));box-shadow:0 22px 65px rgba(99,68,77,.16);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(169,124,137,.16)}
+.paper:before,.paper:after{position:absolute;font-size:35px;opacity:.17}.paper:before{content:"🌿";left:13px;top:10px;transform:rotate(-15deg)}.paper:after{content:"🌸";right:14px;bottom:9px;transform:rotate(12deg)}
+.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a7882;margin-bottom:12px}.title{font:600 clamp(40px,10vw,56px)/.98 "Cormorant Garamond",serif;margin:0 0 16px;color:#76535d}.copy{font-size:14px;line-height:1.72;margin:0;color:#665158}.accent{font:600 27px/1.15 "Cormorant Garamond",serif;color:#8b626d;margin:13px 0}.symbol{font-size:38px;margin:4px 0 8px}.btn{border:0;border-radius:999px;padding:13px 22px;margin-top:21px;width:min(100%,300px);background:linear-gradient(135deg,var(--rose),var(--rose2));color:white;box-shadow:0 10px 24px rgba(152,96,111,.22);cursor:pointer}.btn:active{transform:scale(.98)}
+.music{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:20;border:1px solid rgba(153,102,116,.22);background:rgba(255,253,249,.78);backdrop-filter:blur(10px);color:#76535d;border-radius:999px;padding:9px 12px;font-size:12px;cursor:pointer}
+.progress{display:flex;justify-content:center;gap:7px;margin-bottom:18px}.dot{width:7px;height:7px;border-radius:50%;background:#ddc9ce}.dot.on{width:23px;border-radius:8px;background:#a66f7d}
+.pawtrail,.pawfront{position:absolute;inset:0;pointer-events:none}
+.pawtrail{z-index:8}.pawfront{z-index:30}
+.trailpaw{position:absolute;font-size:clamp(18px,5vw,27px);opacity:0;filter:drop-shadow(0 3px 5px rgba(83,54,64,.10));transform:scale(.55) rotate(var(--r));animation:pawSettle .65s ease forwards}
+.frontpaw{position:absolute;font-size:clamp(25px,8vw,36px);filter:drop-shadow(0 4px 9px rgba(83,54,64,.24));transform:scale(.45) rotate(var(--r));animation:pawPop .52s ease forwards}
+@keyframes pawPop{
+  0%{opacity:0;transform:scale(.35) rotate(var(--r))}
+  65%{opacity:.95;transform:scale(1.18) rotate(var(--r))}
+  100%{opacity:.8;transform:scale(1) rotate(var(--r))}
+}
+@keyframes pawSettle{
+  0%{opacity:0;transform:scale(.85) rotate(var(--r))}
+  100%{opacity:var(--o,.10);transform:scale(1) rotate(var(--r))}
+}
+.paper.bump{animation:bump .18s ease}@keyframes bump{50%{transform:translateY(1px) scale(.997)}}
+.video-screen{padding:0;background:#1d1418}.video-bg,.video-main{position:absolute;inset:0;width:100%;height:100%}.video-bg{object-fit:cover;filter:blur(28px) brightness(.55) saturate(.9);transform:scale(1.12)}.video-main{object-fit:contain;z-index:1}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,0) 48%,rgba(20,10,15,.68))}}
+.invitation{background:linear-gradient(145deg,#f7eee7,#fffaf5)}.invite-card{width:min(100%,430px);padding:30px 24px;border-radius:30px;background:rgba(255,253,249,.97);box-shadow:0 22px 65px rgba(99,68,77,.16);border:1px solid rgba(169,124,137,.16);text-align:center;position:relative;overflow:hidden}.invite-card:before{content:"🌿";position:absolute;left:13px;top:12px;font-size:33px;opacity:.17}.invite-card:after{content:"🐾";position:absolute;right:15px;bottom:12px;font-size:25px;opacity:.17}.invite-title{font:700 clamp(44px,11vw,61px)/.92 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}.invite-msg{font:500 22px/1.3 "Cormorant Garamond",serif;color:#8b626d;margin:0 auto 20px;max-width:360px}.details{background:#fbf3ef;border:1px solid var(--line);border-radius:23px;padding:15px;margin:0 auto 15px;max-width:365px}.row{display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 0;font-size:14px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:365px;margin:auto}.actions a,.actions button{text-decoration:none;border:0;border-radius:999px;padding:12px 9px;cursor:pointer}.map{background:#a87380;color:#fff}.confirm{background:#ecdde0;color:#76535d}.confirmed{font:600 21px/1.25 "Cormorant Garamond",serif;color:#7c5862;margin:18px 0 0;display:none}.tiny{font-size:11px;color:#9c7e86;margin-top:14px}
+@media(max-height:650px){.paper,.invite-card{padding:23px 21px}.title{font-size:38px}.copy{line-height:1.55}.symbol{font-size:32px}.btn{margin-top:15px}.accent{margin:9px 0}.details{padding:10px}.row{padding:5px 0}}
+@media(min-width:700px){.app{max-width:520px;left:50%;transform:translateX(-50%);box-shadow:0 0 90px rgba(61,39,46,.22)}}
+
+.confirm-overlay{
+  position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+  padding:24px;background:linear-gradient(145deg,#f7eee7,#fffaf5);
+  opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease;
+}
+.confirm-overlay.show{opacity:1;visibility:visible}
+.confirm-sequence{text-align:center;max-width:380px}
+.confirm-heart{font-size:42px;margin-bottom:14px;opacity:0;transform:scale(.7);transition:.6s ease}
+.confirm-line{
+  font:600 31px/1.15 "Cormorant Garamond",serif;color:#76535d;
+  margin:12px 0;opacity:0;transform:translateY(10px);transition:.7s ease;
+}
+.confirm-heart.show,.confirm-line.show{opacity:1;transform:none}
+.confirmed-title{font:700 clamp(42px,10vw,58px)/.95 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}
+.confirmed-badge{
+  display:inline-block;margin-bottom:17px;padding:8px 14px;border-radius:999px;
+  background:#ecdde0;color:#76535d;font-size:13px
+}
+
+
+/* --- Segunda pasada: detalles sutiles --- */
+.paper:before,
+.invite-card:before{
+  animation:leafBreeze 8s ease-in-out infinite;
+  transform-origin:70% 80%;
+}
+
+.paper:after{
+  animation:flowerBreath 7s ease-in-out infinite;
+  transform-origin:center;
+}
+
+@keyframes leafBreeze{
+  0%,100%{transform:rotate(-15deg) translateY(0)}
+  50%{transform:rotate(-11deg) translateY(-1px)}
+}
+
+@keyframes flowerBreath{
+  0%,100%{transform:rotate(12deg) scale(1)}
+  50%{transform:rotate(10deg) scale(1.035)}
+}
+
+.cat-pair{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:22px;
+  margin:17px auto 4px;
+  min-height:72px;
+}
+
+.cat{
+  position:relative;
+  width:56px;
+  height:52px;
+  border-radius:48% 48% 42% 42%;
+  box-shadow:0 5px 12px rgba(74,48,56,.10);
+}
+
+.cat:before,
+.cat:after{
+  content:"";
+  position:absolute;
+  top:-12px;
+  width:20px;
+  height:22px;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+.cat:before{left:4px}
+.cat:after{right:4px}
+
+.cat-face{
+  position:absolute;
+  inset:0;
+}
+
+.eye{
+  position:absolute;
+  top:19px;
+  width:5px;
+  height:7px;
+  border-radius:50%;
+  background:#3d3135;
+  animation:catBlink 8s infinite;
+}
+.eye.left{left:16px}
+.eye.right{right:16px}
+
+.nose{
+  position:absolute;
+  left:50%;
+  top:29px;
+  width:6px;
+  height:4px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:#b87982;
+}
+
+.cat.white{
+  background:#fffdf9;
+  border:1px solid #e8dde0;
+}
+.cat.white:before,
+.cat.white:after{
+  background:#fffdf9;
+  border-bottom:1px solid #e8dde0;
+}
+
+.cat.tabby{
+  background:
+    linear-gradient(90deg,transparent 0 15%,#6f5144 15% 23%,transparent 23% 42%,#1f1a1c 42% 50%,transparent 50% 68%,#b86f35 68% 78%,transparent 78%),
+    linear-gradient(145deg,#d98a46 0 35%,#7d5a45 35% 55%,#f3eee8 55% 78%,#2d2427 78% 100%);
+  border:1px solid rgba(70,43,48,.18);
+}
+.cat.tabby:before,
+.cat.tabby:after{
+  background:linear-gradient(145deg,#d98a46,#6f5144 55%,#2d2427);
+}
+
+.tail{
+  position:absolute;
+  width:34px;
+  height:12px;
+  border-radius:999px;
+  right:-21px;
+  bottom:6px;
+  transform-origin:left center;
+  animation:tailMove 9s ease-in-out infinite;
+}
+.cat.white .tail{
+  background:#fffdf9;
+  border:1px solid #e8dde0;
+}
+.cat.tabby .tail{
+  background:linear-gradient(90deg,#d98a46,#6f5144,#2d2427);
+}
+
+@keyframes catBlink{
+  0%,44%,48%,100%{transform:scaleY(1)}
+  46%{transform:scaleY(.12)}
+}
+
+@keyframes tailMove{
+  0%,100%{transform:rotate(8deg)}
+  50%{transform:rotate(-8deg)}
+}
+
+.future-memory{
+  margin-top:16px;
+  font:500 18px/1.35 "Cormorant Garamond",serif;
+  color:#8b626d;
+  opacity:.92;
+}
+
+.future-memory small{
+  display:block;
+  margin-top:5px;
+  font:400 11px/1.4 Poppins,sans-serif;
+  color:#9c7e86;
+}
+
+</style>
+</head>
+<body>
+<main class="app">
+<button class="music" id="musicBtn" onclick="toggleMusic()">♫ Música</button>
+<div class="pawtrail" id="pawtrail"></div><div class="pawfront" id="pawfront"></div>
+
+<section class="screen active" id="s0"><div class="paper"><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="startExperience()">Comenzar</button></div></section>
+<section class="screen" id="s1"><div class="paper"><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="advance(2)">Seguir</button></div></section>
+<section class="screen" id="s2"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="advance(3)">Otra pista</button></div></section>
+<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son para vos.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
+<section class="screen" id="s4"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Algunas cosas se disfrutan más cuando están escritas.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
+
+<section class="screen video-screen" id="sv"><video class="video-bg" id="momentBg" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><video class="video-main" id="moment" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><div class="shade"></div></section>
+
+
+<section class="screen invitation" id="spv">
+  <div class="invite-card">
+    <div class="symbol">❤️</div>
+    <h2 class="confirmed-title">¿Lista para crear otro recuerdo?</h2>
+  </div>
+</section>
+
+<section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="tiny">La cena es solo el comienzo.</div></div></section>
+
+<section class="screen invitation" id="sc">
+  <div class="invite-card">
+    <div class="confirmed-badge">Confirmado ❤️</div>
+    <h2 class="confirmed-title">Nuestra cita</h2>
+    <p class="invite-msg">Tengo muchas ganas de compartir esta noche con vos.</p>
+    <div class="details">
+      <div class="row">📅 <strong>Lunes 13 de julio</strong></div>
+      <div class="row">🕘 <strong>21:00 hs</strong></div>
+      <div class="row">📍 <strong>La Broza</strong></div>
+      <div class="row">🍷 <span>Una mesa para dos</span></div>
+    </div>
+    <div class="actions">
+      <a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+      <button class="confirm" onclick="replayInvitation()">Volver a verla</button>
+    </div>
+    <div class="tiny">Nos vemos muy pronto ✨</div>
+
+    <div class="cat-pair" aria-label="Dos gatitos decorativos">
+      <div class="cat white">
+        <span class="tail"></span>
+        <div class="cat-face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="nose"></span>
+        </div>
+      </div>
+
+      <div class="cat tabby">
+        <span class="tail"></span>
+        <div class="cat-face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="nose"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="future-memory">
+      Este recuerdo todavía no está completo… ❤️
+      <small>Después de esta noche, va a tener una parte más.</small>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-sequence">
+    <div class="confirm-heart" id="confirmHeart">❤️</div>
+    <div class="confirm-line" id="line1">Sabía que ibas a decir que sí.</div>
+    <div class="confirm-line" id="line2">Ahora sí…</div>
+    <div class="confirm-line" id="line3">Tengo muchas ganas de compartir esta noche con vos.</div>
+  </div>
+</div>
+
+<audio id="music" src="latin-jazz-acoustic.mp3" preload="auto" loop></audio>
+<audio id="tap" src="tap-huella.wav" preload="auto"></audio>
+
+<script>
+let musicOn=false;
+let pawCount=0;
+let lastPath={x:10,y:18,angle:25};
+
+function hideAll(){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'))}
+function go(n){hideAll();document.getElementById('s'+n).classList.add('active')}
+
+function startExperience(){
+  if(!musicOn) toggleMusic();
+  addCatStep();
+  setTimeout(()=>go(1),900);
+}
+
+function advance(n){
+  addCatStep();
+  setTimeout(()=>go(n),900);
+}
+
+function toggleMusic(){
+  const m=document.getElementById('music'), b=document.getElementById('musicBtn');
+  if(musicOn){m.pause();musicOn=false;b.textContent='♫ Música'}
+  else{m.volume=.28;m.play().then(()=>{musicOn=true;b.textContent='❚❚ Música'}).catch(()=>{});}
+}
+
+function rand(min,max){return Math.random()*(max-min)+min}
+function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
+
+function nextPath(){
+  let angle = lastPath.angle + rand(-42,42);
+  if(angle < -150 || angle > 150) angle = rand(-40,40);
+  const rad = angle*Math.PI/180;
+  let x = lastPath.x + Math.cos(rad)*rand(20,34);
+  let y = lastPath.y + Math.sin(rad)*rand(14,25);
+
+  if(x<8 || x>88 || y<9 || y>86){
+    const edges=['top','right','bottom','left'];
+    const edge=edges[Math.floor(Math.random()*edges.length)];
+    if(edge==='top'){x=rand(8,78);y=rand(7,15);angle=rand(35,145)}
+    if(edge==='right'){x=rand(80,90);y=rand(10,72);angle=rand(135,225)}
+    if(edge==='bottom'){x=rand(12,80);y=rand(76,88);angle=rand(215,325)}
+    if(edge==='left'){x=rand(5,13);y=rand(12,74);angle=rand(-45,45)}
+  }
+  lastPath={x,y,angle};
+  return lastPath;
+}
+
+function catFootprints(path){
+  const rad=path.angle*Math.PI/180;
+  const dx=Math.cos(rad), dy=Math.sin(rad);
+  const px=-dy, py=dx;
+  const stride=7.0, width=3.6;
+  // orden natural aproximado: delantera izq., trasera izq., delantera der., trasera der.
+  return [
+    {x:path.x + px*width,     y:path.y + py*width,     r:path.angle-12},
+    {x:path.x-dx*stride+px*2, y:path.y-dy*stride+py*2, r:path.angle+8},
+    {x:path.x+dx*stride-px*width, y:path.y+dy*stride-py*width, r:path.angle+12},
+    {x:path.x-px*2,           y:path.y-py*2,           r:path.angle-8}
+  ].map(p=>({x:clamp(p.x,4,91),y:clamp(p.y,5,90),r:p.r}));
+}
+
+function addCatStep(){
+  const back=document.getElementById('pawtrail');
+  const front=document.getElementById('pawfront');
+  const tap=document.getElementById('tap');
+  const path=nextPath();
+  const prints=catFootprints(path);
+
+  prints.forEach((p,i)=>{
+    setTimeout(()=>{
+      const live=document.createElement('span');
+      live.className='frontpaw';
+      live.textContent='🐾';
+      live.style.left=p.x+'%';
+      live.style.top=p.y+'%';
+      live.style.setProperty('--r',p.r+'deg');
+      front.appendChild(live);
+
+      tap.currentTime=0;
+      tap.volume=.16;
+      tap.play().catch(()=>{});
+
+      setTimeout(()=>{
+        live.remove();
+        const settled=document.createElement('span');
+        settled.className='trailpaw';
+        settled.textContent='🐾';
+        settled.style.left=p.x+'%';
+        settled.style.top=p.y+'%';
+        settled.style.setProperty('--r',p.r+'deg');
+        settled.style.setProperty('--o',rand(.055,.12).toFixed(3));
+        back.appendChild(settled);
+      },560);
+      pawCount++;
+    },i*210);
+  });
+}
+
+function playMoment(){
+  addCatStep();
+  setTimeout(()=>{
+    hideAll();
+    const s=document.getElementById('sv'),v=document.getElementById('moment'),b=document.getElementById('momentBg');
+    s.classList.add('active');v.currentTime=0;b.currentTime=0;
+    Promise.allSettled([v.play(),b.play()]);
+    const music=document.getElementById('music');
+    if(musicOn) music.volume=.22;
+    v.onended=()=>{
+      setTimeout(()=>{
+        hideAll();
+        document.getElementById('spv').classList.add('active');
+        if(musicOn)music.volume=.26;
+        setTimeout(()=>{
+          hideAll();
+          document.getElementById('si').classList.add('active');
+        },2200);
+      },350)
+    }
+  },1050);
+}
+
+function confirmInvite(){
+  const overlay=document.getElementById('confirmOverlay');
+  const music=document.getElementById('music');
+  overlay.classList.add('show');
+
+  if(musicOn) music.volume=.18;
+
+  setTimeout(()=>document.getElementById('confirmHeart').classList.add('show'),250);
+  setTimeout(()=>document.getElementById('line1').classList.add('show'),900);
+  setTimeout(()=>document.getElementById('line2').classList.add('show'),2100);
+  setTimeout(()=>document.getElementById('line3').classList.add('show'),3000);
+
+  setTimeout(()=>{
+    overlay.classList.remove('show');
+    hideAll();
+    document.getElementById('sc').classList.add('active');
+    if(musicOn) music.volume=.30;
+  },5200);
+}
+
+function replayInvitation(){
+  hideAll();
+  document.getElementById('si').classList.add('active');
+}
+</script>
+</body>
+</html>
