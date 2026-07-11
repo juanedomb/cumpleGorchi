@@ -59,10 +59,7 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 }
 
 
-/* --- Detalles sutiles y animaciones robustas --- */
-50%{transform:rotate(8deg) scale(1.07)}
-}
-
+/* --- Gatitos y recuerdo final --- */
 .cats-decoration{
   display:flex;
   justify-content:center;
@@ -125,24 +122,24 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 }
 
 
-/* Movimiento sutil sobre la hoja y flor originales */
+/* Movimiento sutil sobre los adornos originales */
 .paper:before,
 .invite-card:before{
-  animation:leafMove 8s ease-in-out infinite;
+  animation:originalLeafMove 8s ease-in-out infinite;
   transform-origin:70% 80%;
 }
 
 .paper:after{
-  animation:flowerMove 7s ease-in-out infinite;
+  animation:originalFlowerMove 7s ease-in-out infinite;
   transform-origin:center;
 }
 
-@keyframes leafMove{
+@keyframes originalLeafMove{
   0%,100%{transform:rotate(-15deg)}
   50%{transform:rotate(-10deg)}
 }
 
-@keyframes flowerMove{
+@keyframes originalFlowerMove{
   0%,100%{transform:rotate(12deg)}
   50%{transform:rotate(8deg) scale(1.035)}
 }
