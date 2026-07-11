@@ -59,147 +59,100 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 }
 
 
-/* --- Segunda pasada: detalles sutiles --- */
-.paper:before,
-.invite-card:before{
-  animation:leafBreeze 8s ease-in-out infinite;
-  transform-origin:70% 80%;
+/* --- Detalles sutiles y animaciones robustas --- */
+.decor-leaf,
+.decor-flower{
+  position:absolute;
+  z-index:2;
+  pointer-events:none;
+  opacity:.16;
 }
 
-.paper:after{
-  animation:flowerBreath 7s ease-in-out infinite;
+.decor-leaf{
+  left:14px;
+  top:12px;
+  font-size:31px;
+  transform-origin:70% 80%;
+  animation:leafBreeze 6s ease-in-out infinite;
+}
+
+.decor-flower{
+  right:15px;
+  bottom:11px;
+  font-size:29px;
   transform-origin:center;
+  animation:flowerBreath 5s ease-in-out infinite;
 }
 
 @keyframes leafBreeze{
   0%,100%{transform:rotate(-15deg) translateY(0)}
-  50%{transform:rotate(-11deg) translateY(-1px)}
+  50%{transform:rotate(-7deg) translateY(-2px)}
 }
 
 @keyframes flowerBreath{
-  0%,100%{transform:rotate(12deg) scale(1)}
-  50%{transform:rotate(10deg) scale(1.035)}
+  0%,100%{transform:rotate(10deg) scale(1)}
+  50%{transform:rotate(8deg) scale(1.07)}
 }
 
-.cat-pair{
+.cats-decoration{
   display:flex;
   justify-content:center;
   align-items:flex-end;
-  gap:22px;
-  margin:17px auto 4px;
-  min-height:72px;
+  gap:10px;
+  margin:9px auto 2px;
+  opacity:.72;
 }
 
-.cat{
-  position:relative;
-  width:56px;
-  height:52px;
-  border-radius:48% 48% 42% 42%;
-  box-shadow:0 5px 12px rgba(74,48,56,.10);
-}
-
-.cat:before,
-.cat:after{
-  content:"";
-  position:absolute;
-  top:-12px;
-  width:20px;
-  height:22px;
-  clip-path:polygon(50% 0,100% 100%,0 100%);
-}
-
-.cat:before{left:4px}
-.cat:after{right:4px}
-
-.cat-face{
-  position:absolute;
-  inset:0;
-}
-
-.eye{
-  position:absolute;
-  top:19px;
-  width:5px;
-  height:7px;
-  border-radius:50%;
-  background:#3d3135;
-  animation:catBlink 8s infinite;
-}
-.eye.left{left:16px}
-.eye.right{right:16px}
-
-.nose{
-  position:absolute;
-  left:50%;
-  top:29px;
-  width:6px;
-  height:4px;
-  transform:translateX(-50%);
-  border-radius:50%;
-  background:#b87982;
-}
-
-.cat.white{
-  background:#fffdf9;
-  border:1px solid #e8dde0;
-}
-.cat.white:before,
-.cat.white:after{
-  background:#fffdf9;
-  border-bottom:1px solid #e8dde0;
-}
-
-.cat.tabby{
-  background:
-    linear-gradient(90deg,transparent 0 15%,#6f5144 15% 23%,transparent 23% 42%,#1f1a1c 42% 50%,transparent 50% 68%,#b86f35 68% 78%,transparent 78%),
-    linear-gradient(145deg,#d98a46 0 35%,#7d5a45 35% 55%,#f3eee8 55% 78%,#2d2427 78% 100%);
-  border:1px solid rgba(70,43,48,.18);
-}
-.cat.tabby:before,
-.cat.tabby:after{
-  background:linear-gradient(145deg,#d98a46,#6f5144 55%,#2d2427);
-}
-
-.tail{
-  position:absolute;
+.cat-mini{
   width:34px;
-  height:12px;
-  border-radius:999px;
-  right:-21px;
-  bottom:6px;
+  height:34px;
+  overflow:visible;
+  filter:drop-shadow(0 2px 3px rgba(76,49,58,.07));
+}
+
+.cat-mini .eye{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:catBlink 6.5s infinite;
+}
+
+.cat-mini .tail{
+  transform-box:fill-box;
   transform-origin:left center;
-  animation:tailMove 9s ease-in-out infinite;
+  animation:tailSway 4.8s ease-in-out infinite;
 }
-.cat.white .tail{
-  background:#fffdf9;
-  border:1px solid #e8dde0;
-}
-.cat.tabby .tail{
-  background:linear-gradient(90deg,#d98a46,#6f5144,#2d2427);
-}
+
+.cat-mini.tabby .tail{animation-delay:1.1s}
+.cat-mini.tabby .eye{animation-delay:.8s}
 
 @keyframes catBlink{
-  0%,44%,48%,100%{transform:scaleY(1)}
-  46%{transform:scaleY(.12)}
+  0%,42%,46%,100%{transform:scaleY(1)}
+  44%{transform:scaleY(.1)}
 }
 
-@keyframes tailMove{
-  0%,100%{transform:rotate(8deg)}
-  50%{transform:rotate(-8deg)}
+@keyframes tailSway{
+  0%,100%{transform:rotate(0deg)}
+  50%{transform:rotate(-10deg)}
 }
 
 .future-memory{
-  margin-top:16px;
-  font:500 18px/1.35 "Cormorant Garamond",serif;
+  margin-top:8px;
+  font:500 16px/1.3 "Cormorant Garamond",serif;
   color:#8b626d;
-  opacity:.92;
+  opacity:.9;
 }
 
 .future-memory small{
   display:block;
-  margin-top:5px;
-  font:400 11px/1.4 Poppins,sans-serif;
+  margin-top:4px;
+  font:400 10px/1.4 Poppins,sans-serif;
   color:#9c7e86;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .decor-leaf,.decor-flower,.cat-mini .eye,.cat-mini .tail{
+    animation:none!important;
+  }
 }
 
 </style>
@@ -209,26 +162,26 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 <button class="music" id="musicBtn" onclick="toggleMusic()">♫ Música</button>
 <div class="pawtrail" id="pawtrail"></div><div class="pawfront" id="pawfront"></div>
 
-<section class="screen active" id="s0"><div class="paper"><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="startExperience()">Comenzar</button></div></section>
-<section class="screen" id="s1"><div class="paper"><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="advance(2)">Seguir</button></div></section>
-<section class="screen" id="s2"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="advance(3)">Otra pista</button></div></section>
-<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son para vos.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
-<section class="screen" id="s4"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Algunas cosas se disfrutan más cuando están escritas.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
+<section class="screen active" id="s0"><div class="paper"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="startExperience()">Comenzar</button></div></section>
+<section class="screen" id="s1"><div class="paper"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="advance(2)">Seguir</button></div></section>
+<section class="screen" id="s2"><div class="paper"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="advance(3)">Otra pista</button></div></section>
+<section class="screen" id="s3"><div class="paper"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son para vos.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
+<section class="screen" id="s4"><div class="paper"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Algunas cosas se disfrutan más cuando están escritas.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
 
 <section class="screen video-screen" id="sv"><video class="video-bg" id="momentBg" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><video class="video-main" id="moment" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><div class="shade"></div></section>
 
 
 <section class="screen invitation" id="spv">
-  <div class="invite-card">
+  <div class="invite-card"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span>
     <div class="symbol">❤️</div>
     <h2 class="confirmed-title">¿Lista para crear otro recuerdo?</h2>
   </div>
 </section>
 
-<section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="tiny">La cena es solo el comienzo.</div></div></section>
+<section class="screen invitation" id="si"><div class="invite-card"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="tiny">La cena es solo el comienzo.</div></div></section>
 
 <section class="screen invitation" id="sc">
-  <div class="invite-card">
+  <div class="invite-card"><span class="decor-leaf">🌿</span><span class="decor-flower">🌸</span>
     <div class="confirmed-badge">Confirmado ❤️</div>
     <h2 class="confirmed-title">Nuestra cita</h2>
     <p class="invite-msg">Tengo muchas ganas de compartir esta noche con vos.</p>
@@ -243,31 +196,41 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
       <button class="confirm" onclick="replayInvitation()">Volver a verla</button>
     </div>
     <div class="tiny">Nos vemos muy pronto ✨</div>
+<div class="cats-decoration" aria-label="Dos gatitos decorativos">
+  <svg class="cat-mini white" viewBox="0 0 50 50" aria-hidden="true">
+    <path class="tail" d="M36 33 C48 31,48 42,39 42" fill="none" stroke="#ddd1d3" stroke-width="5" stroke-linecap="round"/>
+    <path d="M12 17 L16 7 L22 17 Z" fill="#fffdf9" stroke="#d9cccf" stroke-width="1"/>
+    <path d="M28 17 L35 7 L39 19 Z" fill="#fffdf9" stroke="#d9cccf" stroke-width="1"/>
+    <ellipse cx="25" cy="28" rx="15" ry="16" fill="#fffdf9" stroke="#d9cccf" stroke-width="1"/>
+    <ellipse class="eye" cx="20" cy="27" rx="1.4" ry="2.3" fill="#3d3135"/>
+    <ellipse class="eye" cx="30" cy="27" rx="1.4" ry="2.3" fill="#3d3135"/>
+    <path d="M23 32 L25 34 L27 32 Z" fill="#bb7a84"/>
+  </svg>
 
-    <div class="cat-pair" aria-label="Dos gatitos decorativos">
-      <div class="cat white">
-        <span class="tail"></span>
-        <div class="cat-face">
-          <span class="eye left"></span>
-          <span class="eye right"></span>
-          <span class="nose"></span>
-        </div>
-      </div>
+  <svg class="cat-mini tabby" viewBox="0 0 50 50" aria-hidden="true">
+    <defs>
+      <linearGradient id="tabbyMini" x1="0" x2="1">
+        <stop offset="0" stop-color="#d88943"/>
+        <stop offset=".35" stop-color="#8a634a"/>
+        <stop offset=".68" stop-color="#f5eee7"/>
+        <stop offset="1" stop-color="#2d2527"/>
+      </linearGradient>
+    </defs>
+    <path class="tail" d="M36 33 C48 31,48 42,39 42" fill="none" stroke="url(#tabbyMini)" stroke-width="5" stroke-linecap="round"/>
+    <path d="M12 17 L16 7 L22 17 Z" fill="#d88943" stroke="#6e4e42" stroke-width="1"/>
+    <path d="M28 17 L35 7 L39 19 Z" fill="#2d2527" stroke="#6e4e42" stroke-width="1"/>
+    <ellipse cx="25" cy="28" rx="15" ry="16" fill="url(#tabbyMini)" stroke="#6e4e42" stroke-width="1"/>
+    <path d="M20 13 L22 20 M25 12 L25 20 M30 13 L28 20" stroke="#2d2527" stroke-width="2" stroke-linecap="round"/>
+    <ellipse class="eye" cx="20" cy="27" rx="1.4" ry="2.3" fill="#201a1c"/>
+    <ellipse class="eye" cx="30" cy="27" rx="1.4" ry="2.3" fill="#201a1c"/>
+    <path d="M23 32 L25 34 L27 32 Z" fill="#bb7a84"/>
+  </svg>
+</div>
 
-      <div class="cat tabby">
-        <span class="tail"></span>
-        <div class="cat-face">
-          <span class="eye left"></span>
-          <span class="eye right"></span>
-          <span class="nose"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="future-memory">
-      Este recuerdo todavía no está completo… ❤️
-      <small>Después de esta noche, va a tener una parte más.</small>
-    </div>
+<div class="future-memory">
+  Este recuerdo todavía no está completo… ❤️
+  <small>Después de esta noche, va a tener una parte más.</small>
+</div>
   </div>
 </section>
 
