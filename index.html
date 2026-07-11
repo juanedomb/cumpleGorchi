@@ -7,17 +7,17 @@
 <title>Para Gorchi ❤️</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Patrick+Hand&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#f8f1ea;--paper:#fffdf9;--ink:#59464d;--rose:#b98591;--rose2:#996674;--sage:#9cab98;--line:#ead8da}
+:root{--cream:#efe2d1;--paper:#fffaf0;--ink:#55423f;--rose:#cf7f86;--rose2:#a95f69;--sage:#9cab98;--line:#e3cfc1;--kraft:#b99a78}
 *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--cream);font-family:Poppins,sans-serif;color:var(--ink)}
-button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:linear-gradient(145deg,#f7eee7,#fffaf5)}
-.app:before{content:"";position:absolute;inset:0;opacity:.38;pointer-events:none;background-image:radial-gradient(rgba(130,97,105,.14) .7px,transparent .7px);background-size:12px 12px}
+button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:radial-gradient(circle at 20% 10%,#f9efe3 0 16%,transparent 38%),linear-gradient(145deg,#e7d1bb,#f7eadc 48%,#e5cfb7)}
+.app:before{content:"";position:absolute;inset:0;opacity:.30;pointer-events:none;background-image:radial-gradient(rgba(101,70,55,.16) .65px,transparent .65px),linear-gradient(90deg,rgba(255,255,255,.12),rgba(95,65,45,.03));background-size:11px 11px,100% 100%}
 .screen{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:max(20px,env(safe-area-inset-top)) 18px max(20px,env(safe-area-inset-bottom));opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .65s ease,transform .65s ease,visibility .65s}
 .screen.active{opacity:1;visibility:visible;transform:none}
-.paper{width:min(100%,430px);max-height:calc(100vh - 34px);padding:31px 25px;border-radius:30px;background:linear-gradient(145deg,rgba(255,253,249,.98),rgba(250,241,236,.98));box-shadow:0 22px 65px rgba(99,68,77,.16);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(169,124,137,.16)}
+.paper{width:min(100%,430px);max-height:calc(100vh - 34px);padding:31px 25px;border-radius:20px 28px 22px 26px;background:linear-gradient(145deg,rgba(255,251,241,.99),rgba(247,235,220,.99));box-shadow:0 22px 65px rgba(78,50,38,.22),inset 0 0 35px rgba(132,94,62,.07);text-align:center;position:relative;overflow:hidden;border:1px solid rgba(142,104,74,.25);clip-path:polygon(1% 2%,99% 0,100% 97%,97% 100%,2% 99%,0 3%)}
 .paper:before,.paper:after{position:absolute;font-size:35px;opacity:.17}.paper:before{content:"🌿";left:13px;top:10px;transform:rotate(-15deg)}.paper:after{content:"🌸";right:14px;bottom:9px;transform:rotate(12deg)}
-.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a7882;margin-bottom:12px}.title{font:600 clamp(40px,10vw,56px)/.98 "Cormorant Garamond",serif;margin:0 0 16px;color:#76535d}.copy{font-size:14px;line-height:1.72;margin:0;color:#665158}.accent{font:600 27px/1.15 "Cormorant Garamond",serif;color:#8b626d;margin:13px 0}.symbol{font-size:38px;margin:4px 0 8px}.btn{border:0;border-radius:999px;padding:13px 22px;margin-top:21px;width:min(100%,300px);background:linear-gradient(135deg,var(--rose),var(--rose2));color:white;box-shadow:0 10px 24px rgba(152,96,111,.22);cursor:pointer}.btn:active{transform:scale(.98)}
+.eyebrow{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:#9a7882;margin-bottom:12px}.title{font:600 clamp(40px,10vw,56px)/.98 "Cormorant Garamond",serif;margin:0 0 16px;color:#76535d}.copy{font-family:"Patrick Hand",cursive;font-size:18px;line-height:1.55;margin:0;color:#5e4945;letter-spacing:.01em}.accent{font:600 29px/1.1 "Cormorant Garamond",serif;color:#8b626d;margin:13px 0}.symbol{font-size:38px;margin:4px 0 8px}.btn{border:0;border-radius:999px;padding:13px 22px;margin-top:21px;width:min(100%,300px);background:linear-gradient(135deg,var(--rose),var(--rose2));color:white;box-shadow:0 10px 24px rgba(152,96,111,.22);cursor:pointer}.btn:active{transform:scale(.98)}
 .music{position:absolute;right:14px;top:max(12px,env(safe-area-inset-top));z-index:20;border:1px solid rgba(153,102,116,.22);background:rgba(255,253,249,.78);backdrop-filter:blur(10px);color:#76535d;border-radius:999px;padding:9px 12px;font-size:12px;cursor:pointer}
 .progress{display:flex;justify-content:center;gap:7px;margin-bottom:18px}.dot{width:7px;height:7px;border-radius:50%;background:#ddc9ce}.dot.on{width:23px;border-radius:8px;background:#a66f7d}
 .pawtrail,.pawfront{position:absolute;inset:0;pointer-events:none}
@@ -35,7 +35,18 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 }
 .paper.bump{animation:bump .18s ease}@keyframes bump{50%{transform:translateY(1px) scale(.997)}}
 .video-screen{padding:0;background:#1d1418}.video-bg,.video-main{position:absolute;inset:0;width:100%;height:100%}.video-bg{object-fit:cover;filter:blur(28px) brightness(.55) saturate(.9);transform:scale(1.12)}.video-main{object-fit:contain;z-index:1}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,0) 48%,rgba(20,10,15,.68))}}
-.invitation{background:linear-gradient(145deg,#f7eee7,#fffaf5)}.invite-card{width:min(100%,430px);padding:30px 24px;border-radius:30px;background:rgba(255,253,249,.97);box-shadow:0 22px 65px rgba(99,68,77,.16);border:1px solid rgba(169,124,137,.16);text-align:center;position:relative;overflow:hidden}.invite-card:before{content:"🌿";position:absolute;left:13px;top:12px;font-size:33px;opacity:.17}.invite-card:after{content:"🐾";position:absolute;right:15px;bottom:12px;font-size:25px;opacity:.17}.invite-title{font:700 clamp(44px,11vw,61px)/.92 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}.invite-msg{font:500 22px/1.3 "Cormorant Garamond",serif;color:#8b626d;margin:0 auto 20px;max-width:360px}.details{background:#fbf3ef;border:1px solid var(--line);border-radius:23px;padding:15px;margin:0 auto 15px;max-width:365px}.row{display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 0;font-size:14px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:365px;margin:auto}.actions a,.actions button{text-decoration:none;border:0;border-radius:999px;padding:12px 9px;cursor:pointer}.map{background:#a87380;color:#fff}.confirm{background:#ecdde0;color:#76535d}.confirmed{font:600 21px/1.25 "Cormorant Garamond",serif;color:#7c5862;margin:18px 0 0;display:none}.tiny{font-size:11px;color:#9c7e86;margin-top:14px}
+.invitation{background:radial-gradient(circle at 15% 12%,#f9efe3 0 18%,transparent 42%),linear-gradient(145deg,#e7d1bb,#f8ebdd 52%,#e4cdb5)}.invite-card{width:min(100%,430px);padding:30px 24px;border-radius:20px 28px 22px 26px;background:linear-gradient(145deg,rgba(255,251,241,.99),rgba(247,235,220,.99));box-shadow:0 22px 65px rgba(78,50,38,.22),inset 0 0 35px rgba(132,94,62,.07);border:1px solid rgba(142,104,74,.25);text-align:center;position:relative;overflow:hidden;clip-path:polygon(1% 2%,99% 0,100% 97%,97% 100%,2% 99%,0 3%)}.invite-card:before{content:"🌿";position:absolute;left:13px;top:12px;font-size:33px;opacity:.17}.invite-card:after{content:"🐾";position:absolute;right:15px;bottom:12px;font-size:25px;opacity:.17}.invite-title{font:700 clamp(44px,11vw,61px)/.92 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}.invite-msg{font:500 23px/1.25 "Cormorant Garamond",serif;color:#8b626d;margin:0 auto 20px;max-width:360px}.details{background:#fbf3ef;border:1px solid var(--line);border-radius:23px;padding:15px;margin:0 auto 15px;max-width:365px}.row{display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 0;font-size:14px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:365px;margin:auto}.actions a,.actions button{text-decoration:none;border:0;border-radius:999px;padding:12px 9px;cursor:pointer}.map{background:#a87380;color:#fff}.confirm{background:#ecdde0;color:#76535d}.confirmed{font:600 21px/1.25 "Cormorant Garamond",serif;color:#7c5862;margin:18px 0 0;display:none}.tiny{font-size:11px;color:#9c7e86;margin-top:14px}
+
+.cat-pair{display:flex;justify-content:center;align-items:flex-end;gap:10px;margin:14px auto 4px;height:58px;opacity:.92}
+.cat-illo{width:52px;height:58px;filter:drop-shadow(0 4px 5px rgba(73,48,40,.12))}
+.cat-white .body{fill:#fffdf7;stroke:#8a7569;stroke-width:2}
+.cat-tabby .body{fill:#b79b80;stroke:#745f51;stroke-width:2}
+.cat-tabby .stripe{stroke:#6f594b;stroke-width:2.2;stroke-linecap:round}
+.cat-eye{fill:#51413c}
+.cat-nose{fill:#c47d82}
+.cat-whisker{stroke:#78635a;stroke-width:1.25;stroke-linecap:round}
+.cat-heart{font-size:18px;color:#c97880;transform:translateY(-28px);opacity:.75}
+
 @media(max-height:650px){.paper,.invite-card{padding:23px 21px}.title{font-size:38px}.copy{line-height:1.55}.symbol{font-size:32px}.btn{margin-top:15px}.accent{margin:9px 0}.details{padding:10px}.row{padding:5px 0}}
 @media(min-width:700px){.app{max-width:520px;left:50%;transform:translateX(-50%);box-shadow:0 0 90px rgba(61,39,46,.22)}}
 
@@ -81,7 +92,27 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
   </div>
 </section>
 
-<section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="tiny">La cena es solo el comienzo.</div></div></section>
+<section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div>
+<div class="cat-pair" aria-label="Dos gatitos, uno blanco y otro atigrado">
+  <svg class="cat-illo cat-white" viewBox="0 0 64 72" role="img" aria-label="Gatito blanco">
+    <path class="body" d="M17 26 L11 13 L25 20 Q32 16 39 20 L53 13 L48 28 Q53 35 50 46 Q47 58 33 60 Q18 59 14 47 Q11 35 17 26Z"/>
+    <ellipse class="cat-eye" cx="25" cy="34" rx="1.8" ry="2.3"/><ellipse class="cat-eye" cx="39" cy="34" rx="1.8" ry="2.3"/>
+    <path class="cat-nose" d="M30 39 Q32 41 34 39 Q32 44 30 39Z"/>
+    <path class="cat-whisker" d="M23 42 L10 39 M23 45 L9 46 M41 42 L54 39 M41 45 L55 46"/>
+    <path class="body" d="M24 58 Q18 67 13 63 Q15 56 22 54Z"/>
+  </svg>
+  <span class="cat-heart">♡</span>
+  <svg class="cat-illo cat-tabby" viewBox="0 0 64 72" role="img" aria-label="Gatito atigrado">
+    <path class="body" d="M17 26 L11 13 L25 20 Q32 16 39 20 L53 13 L48 28 Q53 35 50 46 Q47 58 33 60 Q18 59 14 47 Q11 35 17 26Z"/>
+    <path class="stripe" d="M27 21 L29 28 M33 19 L33 28 M39 21 L37 28 M17 29 L23 32 M47 29 L41 32"/>
+    <ellipse class="cat-eye" cx="25" cy="34" rx="1.8" ry="2.3"/><ellipse class="cat-eye" cx="39" cy="34" rx="1.8" ry="2.3"/>
+    <path class="cat-nose" d="M30 39 Q32 41 34 39 Q32 44 30 39Z"/>
+    <path class="cat-whisker" d="M23 42 L10 39 M23 45 L9 46 M41 42 L54 39 M41 45 L55 46"/>
+    <path class="body" d="M40 58 Q49 67 55 61 Q51 55 43 54Z"/>
+    <path class="stripe" d="M47 58 L50 63 M43 56 L46 62"/>
+  </svg>
+</div>
+<div class="tiny">La cena es solo el comienzo.</div></div></section>
 
 <section class="screen invitation" id="sc">
   <div class="invite-card">
@@ -98,7 +129,27 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
       <a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a>
       <button class="confirm" onclick="replayInvitation()">Volver a verla</button>
     </div>
-    <div class="tiny">Nos vemos muy pronto ✨</div>
+    
+<div class="cat-pair" aria-label="Dos gatitos, uno blanco y otro atigrado">
+  <svg class="cat-illo cat-white" viewBox="0 0 64 72" role="img" aria-label="Gatito blanco">
+    <path class="body" d="M17 26 L11 13 L25 20 Q32 16 39 20 L53 13 L48 28 Q53 35 50 46 Q47 58 33 60 Q18 59 14 47 Q11 35 17 26Z"/>
+    <ellipse class="cat-eye" cx="25" cy="34" rx="1.8" ry="2.3"/><ellipse class="cat-eye" cx="39" cy="34" rx="1.8" ry="2.3"/>
+    <path class="cat-nose" d="M30 39 Q32 41 34 39 Q32 44 30 39Z"/>
+    <path class="cat-whisker" d="M23 42 L10 39 M23 45 L9 46 M41 42 L54 39 M41 45 L55 46"/>
+    <path class="body" d="M24 58 Q18 67 13 63 Q15 56 22 54Z"/>
+  </svg>
+  <span class="cat-heart">♡</span>
+  <svg class="cat-illo cat-tabby" viewBox="0 0 64 72" role="img" aria-label="Gatito atigrado">
+    <path class="body" d="M17 26 L11 13 L25 20 Q32 16 39 20 L53 13 L48 28 Q53 35 50 46 Q47 58 33 60 Q18 59 14 47 Q11 35 17 26Z"/>
+    <path class="stripe" d="M27 21 L29 28 M33 19 L33 28 M39 21 L37 28 M17 29 L23 32 M47 29 L41 32"/>
+    <ellipse class="cat-eye" cx="25" cy="34" rx="1.8" ry="2.3"/><ellipse class="cat-eye" cx="39" cy="34" rx="1.8" ry="2.3"/>
+    <path class="cat-nose" d="M30 39 Q32 41 34 39 Q32 44 30 39Z"/>
+    <path class="cat-whisker" d="M23 42 L10 39 M23 45 L9 46 M41 42 L54 39 M41 45 L55 46"/>
+    <path class="body" d="M40 58 Q49 67 55 61 Q51 55 43 54Z"/>
+    <path class="stripe" d="M47 58 L50 63 M43 56 L46 62"/>
+  </svg>
+</div>
+<div class="tiny">Nos vemos muy pronto ✨</div>
   </div>
 </section>
 
