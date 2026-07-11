@@ -58,6 +58,150 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
   background:#ecdde0;color:#76535d;font-size:13px
 }
 
+
+/* --- Segunda pasada: detalles sutiles --- */
+.paper:before,
+.invite-card:before{
+  animation:leafBreeze 8s ease-in-out infinite;
+  transform-origin:70% 80%;
+}
+
+.paper:after{
+  animation:flowerBreath 7s ease-in-out infinite;
+  transform-origin:center;
+}
+
+@keyframes leafBreeze{
+  0%,100%{transform:rotate(-15deg) translateY(0)}
+  50%{transform:rotate(-11deg) translateY(-1px)}
+}
+
+@keyframes flowerBreath{
+  0%,100%{transform:rotate(12deg) scale(1)}
+  50%{transform:rotate(10deg) scale(1.035)}
+}
+
+.cat-pair{
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  gap:22px;
+  margin:17px auto 4px;
+  min-height:72px;
+}
+
+.cat{
+  position:relative;
+  width:56px;
+  height:52px;
+  border-radius:48% 48% 42% 42%;
+  box-shadow:0 5px 12px rgba(74,48,56,.10);
+}
+
+.cat:before,
+.cat:after{
+  content:"";
+  position:absolute;
+  top:-12px;
+  width:20px;
+  height:22px;
+  clip-path:polygon(50% 0,100% 100%,0 100%);
+}
+
+.cat:before{left:4px}
+.cat:after{right:4px}
+
+.cat-face{
+  position:absolute;
+  inset:0;
+}
+
+.eye{
+  position:absolute;
+  top:19px;
+  width:5px;
+  height:7px;
+  border-radius:50%;
+  background:#3d3135;
+  animation:catBlink 8s infinite;
+}
+.eye.left{left:16px}
+.eye.right{right:16px}
+
+.nose{
+  position:absolute;
+  left:50%;
+  top:29px;
+  width:6px;
+  height:4px;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:#b87982;
+}
+
+.cat.white{
+  background:#fffdf9;
+  border:1px solid #e8dde0;
+}
+.cat.white:before,
+.cat.white:after{
+  background:#fffdf9;
+  border-bottom:1px solid #e8dde0;
+}
+
+.cat.tabby{
+  background:
+    linear-gradient(90deg,transparent 0 15%,#6f5144 15% 23%,transparent 23% 42%,#1f1a1c 42% 50%,transparent 50% 68%,#b86f35 68% 78%,transparent 78%),
+    linear-gradient(145deg,#d98a46 0 35%,#7d5a45 35% 55%,#f3eee8 55% 78%,#2d2427 78% 100%);
+  border:1px solid rgba(70,43,48,.18);
+}
+.cat.tabby:before,
+.cat.tabby:after{
+  background:linear-gradient(145deg,#d98a46,#6f5144 55%,#2d2427);
+}
+
+.tail{
+  position:absolute;
+  width:34px;
+  height:12px;
+  border-radius:999px;
+  right:-21px;
+  bottom:6px;
+  transform-origin:left center;
+  animation:tailMove 9s ease-in-out infinite;
+}
+.cat.white .tail{
+  background:#fffdf9;
+  border:1px solid #e8dde0;
+}
+.cat.tabby .tail{
+  background:linear-gradient(90deg,#d98a46,#6f5144,#2d2427);
+}
+
+@keyframes catBlink{
+  0%,44%,48%,100%{transform:scaleY(1)}
+  46%{transform:scaleY(.12)}
+}
+
+@keyframes tailMove{
+  0%,100%{transform:rotate(8deg)}
+  50%{transform:rotate(-8deg)}
+}
+
+.future-memory{
+  margin-top:16px;
+  font:500 18px/1.35 "Cormorant Garamond",serif;
+  color:#8b626d;
+  opacity:.92;
+}
+
+.future-memory small{
+  display:block;
+  margin-top:5px;
+  font:400 11px/1.4 Poppins,sans-serif;
+  color:#9c7e86;
+}
+
 </style>
 </head>
 <body>
@@ -99,6 +243,31 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
       <button class="confirm" onclick="replayInvitation()">Volver a verla</button>
     </div>
     <div class="tiny">Nos vemos muy pronto ✨</div>
+
+    <div class="cat-pair" aria-label="Dos gatitos decorativos">
+      <div class="cat white">
+        <span class="tail"></span>
+        <div class="cat-face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="nose"></span>
+        </div>
+      </div>
+
+      <div class="cat tabby">
+        <span class="tail"></span>
+        <div class="cat-face">
+          <span class="eye left"></span>
+          <span class="eye right"></span>
+          <span class="nose"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="future-memory">
+      Este recuerdo todavía no está completo… ❤️
+      <small>Después de esta noche, va a tener una parte más.</small>
+    </div>
   </div>
 </section>
 
