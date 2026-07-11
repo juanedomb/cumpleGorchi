@@ -22,7 +22,7 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 .progress{display:flex;justify-content:center;gap:7px;margin-bottom:18px}.dot{width:7px;height:7px;border-radius:50%;background:#ddc9ce}.dot.on{width:23px;border-radius:8px;background:#a66f7d}
 .pawtrail,.pawfront{position:absolute;inset:0;pointer-events:none}
 .pawtrail{z-index:8}.pawfront{z-index:30}
-.trailpaw{position:absolute;font-size:clamp(20px,6vw,29px);opacity:0;filter:drop-shadow(0 3px 5px rgba(83,54,64,.14));transform:scale(.55) rotate(var(--r));animation:pawSettle .55s ease forwards}
+.trailpaw{position:absolute;font-size:clamp(18px,5vw,27px);opacity:0;filter:drop-shadow(0 3px 5px rgba(83,54,64,.10));transform:scale(.55) rotate(var(--r));animation:pawSettle .65s ease forwards}
 .frontpaw{position:absolute;font-size:clamp(25px,8vw,36px);filter:drop-shadow(0 4px 9px rgba(83,54,64,.24));transform:scale(.45) rotate(var(--r));animation:pawPop .52s ease forwards}
 @keyframes pawPop{
   0%{opacity:0;transform:scale(.35) rotate(var(--r))}
@@ -31,10 +31,10 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 }
 @keyframes pawSettle{
   0%{opacity:0;transform:scale(.85) rotate(var(--r))}
-  100%{opacity:.11;transform:scale(1) rotate(var(--r))}
+  100%{opacity:var(--o,.10);transform:scale(1) rotate(var(--r))}
 }
 .paper.bump{animation:bump .18s ease}@keyframes bump{50%{transform:translateY(1px) scale(.997)}}
-.video-screen{padding:0;background:#1d1418}.video-bg,.video-main{position:absolute;inset:0;width:100%;height:100%}.video-bg{object-fit:cover;filter:blur(28px) brightness(.55) saturate(.9);transform:scale(1.12)}.video-main{object-fit:contain;z-index:1}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,0) 48%,rgba(20,10,15,.68))}.video-caption{position:absolute;z-index:3;left:22px;right:22px;bottom:max(44px,calc(env(safe-area-inset-bottom) + 28px));text-align:center;color:#fff;font:600 clamp(25px,7vw,38px)/1.12 "Cormorant Garamond",serif;text-shadow:0 3px 18px rgba(0,0,0,.55);opacity:0;animation:caption 1s .65s forwards}@keyframes caption{to{opacity:1;transform:translateY(-4px)}}
+.video-screen{padding:0;background:#1d1418}.video-bg,.video-main{position:absolute;inset:0;width:100%;height:100%}.video-bg{object-fit:cover;filter:blur(28px) brightness(.55) saturate(.9);transform:scale(1.12)}.video-main{object-fit:contain;z-index:1}.shade{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,0,0,.08),rgba(0,0,0,0) 48%,rgba(20,10,15,.68))}}
 .invitation{background:linear-gradient(145deg,#f7eee7,#fffaf5)}.invite-card{width:min(100%,430px);padding:30px 24px;border-radius:30px;background:rgba(255,253,249,.97);box-shadow:0 22px 65px rgba(99,68,77,.16);border:1px solid rgba(169,124,137,.16);text-align:center;position:relative;overflow:hidden}.invite-card:before{content:"🌿";position:absolute;left:13px;top:12px;font-size:33px;opacity:.17}.invite-card:after{content:"🐾";position:absolute;right:15px;bottom:12px;font-size:25px;opacity:.17}.invite-title{font:700 clamp(44px,11vw,61px)/.92 "Cormorant Garamond",serif;color:#76535d;margin:0 0 13px}.invite-msg{font:500 22px/1.3 "Cormorant Garamond",serif;color:#8b626d;margin:0 auto 20px;max-width:360px}.details{background:#fbf3ef;border:1px solid var(--line);border-radius:23px;padding:15px;margin:0 auto 15px;max-width:365px}.row{display:flex;align-items:center;justify-content:center;gap:9px;padding:7px 0;font-size:14px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;max-width:365px;margin:auto}.actions a,.actions button{text-decoration:none;border:0;border-radius:999px;padding:12px 9px;cursor:pointer}.map{background:#a87380;color:#fff}.confirm{background:#ecdde0;color:#76535d}.confirmed{font:600 21px/1.25 "Cormorant Garamond",serif;color:#7c5862;margin:18px 0 0;display:none}.tiny{font-size:11px;color:#9c7e86;margin-top:14px}
 @media(max-height:650px){.paper,.invite-card{padding:23px 21px}.title{font-size:38px}.copy{line-height:1.55}.symbol{font-size:32px}.btn{margin-top:15px}.accent{margin:9px 0}.details{padding:10px}.row{padding:5px 0}}
 @media(min-width:700px){.app{max-width:520px;left:50%;transform:translateX(-50%);box-shadow:0 0 90px rgba(61,39,46,.22)}}
@@ -68,10 +68,18 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
 <section class="screen active" id="s0"><div class="paper"><div class="eyebrow">Una pequeña sorpresa</div><h1 class="title">Para vos,<br>Gorchi ❤️</h1><p class="copy">Porque algunos regalos empiezan mucho antes de abrirlos.</p><button class="btn" onclick="startExperience()">Comenzar</button></div></section>
 <section class="screen" id="s1"><div class="paper"><div class="progress"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">🍽️</div><div class="accent">Una mesa para dos</div><p class="copy">Quiero regalarte una noche para comer rico, mirarnos y disfrutar sin apuro.</p><button class="btn" onclick="advance(2)">Seguir</button></div></section>
 <section class="screen" id="s2"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></div><div class="symbol">❄️</div><div class="accent">Un poquito de calor</div><p class="copy">Porque sos muy friolenta… y porque siempre dan ganas de cuidarte un poquito más.</p><button class="btn" onclick="advance(3)">Otra pista</button></div></section>
-<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son los pequeños integrantes de tu familia.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
-<section class="screen" id="s4"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Hay cosas que prefiero escribir, porque ciertos sentimientos merecen quedarse en papel.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
+<section class="screen" id="s3"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot on"></i><i class="dot"></i></div><div class="symbol">🐾</div><div class="accent">También pensé en ellos</div><p class="copy">Porque sé lo importantes que son para vos.</p><button class="btn" onclick="advance(4)">Una más</button></div></section>
+<section class="screen" id="s4"><div class="paper"><div class="progress"><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot on"></i></div><div class="symbol">✉️</div><div class="accent">Y algunas palabras…</div><p class="copy">Algunas cosas se disfrutan más cuando están escritas.</p><button class="btn" onclick="playMoment()">Ver nuestro momento</button></div></section>
 
-<section class="screen video-screen" id="sv"><video class="video-bg" id="momentBg" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><video class="video-main" id="moment" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><div class="shade"></div><div class="video-caption">Gracias por convertir los momentos más simples en mis favoritos.</div></section>
+<section class="screen video-screen" id="sv"><video class="video-bg" id="momentBg" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><video class="video-main" id="moment" src="giro-gorchi.mp4" playsinline muted preload="auto"></video><div class="shade"></div></section>
+
+
+<section class="screen invitation" id="spv">
+  <div class="invite-card">
+    <div class="symbol">❤️</div>
+    <h2 class="confirmed-title">¿Lista para crear otro recuerdo?</h2>
+  </div>
+</section>
 
 <section class="screen invitation" id="si"><div class="invite-card"><div class="eyebrow">Invitación especial</div><h2 class="invite-title">Nuestra noche</h2><p class="invite-msg">Tengo preparada una noche muy especial para vos.<br>Lo demás… prefiero que lo descubramos juntos. ❤️</p><div class="details"><div class="row">📅 <strong>Lunes 13 de julio</strong></div><div class="row">🕘 <strong>21:00 hs</strong></div><div class="row">📍 <strong>La Broza</strong></div><div class="row">🍷 <span>Una mesa para dos</span></div></div><div class="actions"><a class="map" href="https://maps.google.com/?q=La+Broza+Bahia+Blanca" target="_blank" rel="noopener noreferrer">Cómo llegar</a><button class="confirm" onclick="confirmInvite()">Acepto ❤️</button></div><div class="tiny">La cena es solo el comienzo.</div></div></section>
 
@@ -106,60 +114,89 @@ button,a{font:inherit}.app{position:fixed;inset:0;overflow:hidden;background:lin
   </div>
 </div>
 
-<audio id="music" src="musica-alegre.wav" preload="auto" loop></audio>
+<audio id="music" src="latin-jazz-acoustic.mp3" preload="auto" loop></audio>
 <audio id="tap" src="tap-huella.wav" preload="auto"></audio>
 
 <script>
 let musicOn=false;
 let pawCount=0;
-const pawPositions=[
-  [7,9,-18],[20,16,13],[34,8,-12],[49,18,16],
-  [65,10,-15],[82,17,12],[91,31,-10],[76,39,16],
-  [58,31,-12],[41,42,14],[23,34,-15],[8,47,12],
-  [18,61,-12],[36,55,15],[54,66,-14],[72,57,13],
-  [88,69,-11],[69,78,15],[49,72,-13],[30,82,12],
-  [12,74,-15],[25,92,14],[48,88,-12],[78,91,15]
-];
+let lastPath={x:10,y:18,angle:25};
 
 function hideAll(){document.querySelectorAll('.screen').forEach(x=>x.classList.remove('active'))}
 function go(n){hideAll();document.getElementById('s'+n).classList.add('active')}
 
 function startExperience(){
   if(!musicOn) toggleMusic();
-  addPaws(2);
-  setTimeout(()=>go(1),520);
+  addCatStep();
+  setTimeout(()=>go(1),900);
 }
 
 function advance(n){
-  addPaws(2);
-  setTimeout(()=>go(n),520);
+  addCatStep();
+  setTimeout(()=>go(n),900);
 }
 
 function toggleMusic(){
   const m=document.getElementById('music'), b=document.getElementById('musicBtn');
   if(musicOn){m.pause();musicOn=false;b.textContent='♫ Música'}
-  else{m.volume=.33;m.play().then(()=>{musicOn=true;b.textContent='❚❚ Música'}).catch(()=>{});}
+  else{m.volume=.28;m.play().then(()=>{musicOn=true;b.textContent='❚❚ Música'}).catch(()=>{});}
 }
 
-function addPaws(amount){
+function rand(min,max){return Math.random()*(max-min)+min}
+function clamp(v,min,max){return Math.max(min,Math.min(max,v))}
+
+function nextPath(){
+  let angle = lastPath.angle + rand(-42,42);
+  if(angle < -150 || angle > 150) angle = rand(-40,40);
+  const rad = angle*Math.PI/180;
+  let x = lastPath.x + Math.cos(rad)*rand(20,34);
+  let y = lastPath.y + Math.sin(rad)*rand(14,25);
+
+  if(x<8 || x>88 || y<9 || y>86){
+    const edges=['top','right','bottom','left'];
+    const edge=edges[Math.floor(Math.random()*edges.length)];
+    if(edge==='top'){x=rand(8,78);y=rand(7,15);angle=rand(35,145)}
+    if(edge==='right'){x=rand(80,90);y=rand(10,72);angle=rand(135,225)}
+    if(edge==='bottom'){x=rand(12,80);y=rand(76,88);angle=rand(215,325)}
+    if(edge==='left'){x=rand(5,13);y=rand(12,74);angle=rand(-45,45)}
+  }
+  lastPath={x,y,angle};
+  return lastPath;
+}
+
+function catFootprints(path){
+  const rad=path.angle*Math.PI/180;
+  const dx=Math.cos(rad), dy=Math.sin(rad);
+  const px=-dy, py=dx;
+  const stride=7.0, width=3.6;
+  // orden natural aproximado: delantera izq., trasera izq., delantera der., trasera der.
+  return [
+    {x:path.x + px*width,     y:path.y + py*width,     r:path.angle-12},
+    {x:path.x-dx*stride+px*2, y:path.y-dy*stride+py*2, r:path.angle+8},
+    {x:path.x+dx*stride-px*width, y:path.y+dy*stride-py*width, r:path.angle+12},
+    {x:path.x-px*2,           y:path.y-py*2,           r:path.angle-8}
+  ].map(p=>({x:clamp(p.x,4,91),y:clamp(p.y,5,90),r:p.r}));
+}
+
+function addCatStep(){
   const back=document.getElementById('pawtrail');
   const front=document.getElementById('pawfront');
   const tap=document.getElementById('tap');
+  const path=nextPath();
+  const prints=catFootprints(path);
 
-  for(let i=0;i<amount;i++){
+  prints.forEach((p,i)=>{
     setTimeout(()=>{
-      const p=pawPositions[pawCount%pawPositions.length];
-
       const live=document.createElement('span');
       live.className='frontpaw';
       live.textContent='🐾';
-      live.style.left=p[0]+'%';
-      live.style.top=p[1]+'%';
-      live.style.setProperty('--r',p[2]+'deg');
+      live.style.left=p.x+'%';
+      live.style.top=p.y+'%';
+      live.style.setProperty('--r',p.r+'deg');
       front.appendChild(live);
 
       tap.currentTime=0;
-      tap.volume=.20;
+      tap.volume=.16;
       tap.play().catch(()=>{});
 
       setTimeout(()=>{
@@ -167,19 +204,19 @@ function addPaws(amount){
         const settled=document.createElement('span');
         settled.className='trailpaw';
         settled.textContent='🐾';
-        settled.style.left=p[0]+'%';
-        settled.style.top=p[1]+'%';
-        settled.style.setProperty('--r',p[2]+'deg');
+        settled.style.left=p.x+'%';
+        settled.style.top=p.y+'%';
+        settled.style.setProperty('--r',p.r+'deg');
+        settled.style.setProperty('--o',rand(.055,.12).toFixed(3));
         back.appendChild(settled);
-      },520);
-
+      },560);
       pawCount++;
-    },i*260);
-  }
+    },i*210);
+  });
 }
 
 function playMoment(){
-  addPaws(4);
+  addCatStep();
   setTimeout(()=>{
     hideAll();
     const s=document.getElementById('sv'),v=document.getElementById('moment'),b=document.getElementById('momentBg');
@@ -187,8 +224,18 @@ function playMoment(){
     Promise.allSettled([v.play(),b.play()]);
     const music=document.getElementById('music');
     if(musicOn) music.volume=.22;
-    v.onended=()=>{setTimeout(()=>{hideAll();document.getElementById('si').classList.add('active');if(musicOn)music.volume=.30},450)}
-  },920);
+    v.onended=()=>{
+      setTimeout(()=>{
+        hideAll();
+        document.getElementById('spv').classList.add('active');
+        if(musicOn)music.volume=.26;
+        setTimeout(()=>{
+          hideAll();
+          document.getElementById('si').classList.add('active');
+        },2200);
+      },350)
+    }
+  },1050);
 }
 
 function confirmInvite(){
